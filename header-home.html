@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Header home</title>
+    <style>
+      #lbl {
+        display: flex;
+        font-family: sans-serif;
+        font-size: 18pt;
+        color: #ff5757;
+        padding: 5px;
+        border: 1px solid #ffffff;
+        justify-content: left;
+        line-height: 1.5;
+        height:85%;
+        font-weight: bold;
+        flex-direction: row;
+      }
+
+      #ctn {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      #date{
+          font-size:12pt;
+          font-weight: bold;
+      }
+
+      body{
+          background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-4" id="lbl">
+          
+        </div>
+        <div class="col-12 col-md-4">
+          <iframe frameBorder="0" width="100%" src="https://kwize.com/quote-of-the-day/embed/&txt=0&font=Tahoma&color=000000&background=ffffff&fid=My%20Life and Work"></iframe>
+        </div>
+        <div class="col-12 col-md-4">
+          <a class="weatherwidget-io" href="https://forecast7.com/en/48d862d35/paris/" data-label_1="PARIS" data-label_2="WEATHER" data-font="Helvetica" data-icons="Climacons" data-days="3" data-theme="original" >PARIS WEATHER</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        var weekday = new Array(7);
+        weekday[0] = "sunday";
+        weekday[1] = "monday";
+        weekday[2] = "tuesday";
+        weekday[3] = "wednesday";
+        weekday[4] = "thursday";
+        weekday[5] = "friday";
+        weekday[6] = "saturday";
+
+        const monthNames = ["january", "february", "march", "april", "may", "june",
+          "july", "august", "september", "october", "november", "december"
+        ];
+
+        
+        var today = new Date();
+        var hrs = today.getHours();
+        var dayOfWeek = weekday[today.getDay()];
+        var date = `${dayOfWeek}, ${monthNames[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+
+        var greet;
+
+        if (hrs < 12)
+            greet = 'good morning.  ';
+        else if (hrs >= 12 && hrs <= 17)
+            greet = 'good afternoon. ';
+        else if (hrs >= 17 && hrs <= 24)
+            greet = 'good evening.  ';
+
+        document.getElementById('lbl').innerHTML = `
+            <div class="ctn">
+              <div id="date"> ${date}</div>
+              <div class="greeting">${greet}</div>
+            <div/>
+        `;
+    </script> 
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+  </body>
+
+</html>
